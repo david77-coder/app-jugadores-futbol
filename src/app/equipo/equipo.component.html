@@ -1,0 +1,99 @@
+<div class="d-flex">
+  <div class="acordeon me-4">
+    <mat-divider> </mat-divider>
+    <h2>Jugadores</h2>
+    <code>Ultima Actualización {{ actualizacion | date : "dd-MM-yyyy" }} </code
+    ><br />
+    <code>Ultima Hora {{ actualizacion | date : "mm:HH" }} </code><br>
+    
+
+    <mat-accordion class="jugadores-headers-align">
+      <mat-expansion-panel
+        *ngFor="let thejugador of jugadores; let i = index"
+        class="mb-2 mt-2"
+        hideToggle="true"
+      >
+        <mat-expansion-panel-header
+          [ngStyle]="{ width: '250px' }"
+          class="h-auto d-flex pt-3 pb-2"
+          (click)="toggleVisibilidad(i)"
+        >
+          <div class="d-flex flex-column">
+            <mat-panel-title>
+              {{ thejugador.nombre }}
+            </mat-panel-title>
+            <mat-panel-description>
+              <span class="d-flex flex-column">
+                <p class="mb-0">Posición: {{ thejugador.posicion }}</p>
+                <p *ngIf="!thejugador.estado" [ngStyle]="{ color: 'red' }">
+                  Estado: Inactivo
+                </p>
+                <p *ngIf="thejugador.estado" [ngStyle]="{ color: 'green' }">
+                  Estado: Activo
+                </p>
+              </span>
+            </mat-panel-description>
+
+            <div *ngIf="this.indiceVisible === i">
+              <p>Edad: {{ thejugador.edad }}</p>
+              <p>Apodo: {{ thejugador.apodo }}</p>
+
+              <button
+                *ngIf="thejugador.estado"
+                mat-raised-button
+                color="primary"
+                (click)="activarJugador(i)"
+              >
+                {{ thejugador.estado ? "Desactivar" : "Activar" }}
+              </button>
+            </div>
+          </div>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-divider></mat-divider>
+  </div>
+  <div
+    *ngIf="jugadores.length > 0; else NoJugadores"
+    class="d-flex align-content-start w-100 flex-wrap mt-4 mb-5"
+  >
+    <div class="w-100 equipo mb-4">Equipo {{equipo | uppercase}}:</div>
+    <!-- <div class="w-100 presupuesto mb-4">
+      Presupuesto: {{ presupuesto | currency }}
+    </div> -->
+       <!-- <div class="w-100 aficionados mb-4">
+      Presupuesto: {{ aficionados | number: '3.1-2' }}
+    </div> -->
+    <div class="w-100 aficionados mb-4">
+      Porcentaje efectividad: {{ efectividad/100 | percent: '1.0-2' }}
+    </div>
+    <mat-form-field appearance="outline" class="w-100">
+  <mat-label>Buscar jugador</mat-label>
+  <input matInput [(ngModel)]="busqueda" placeholder="Escribe una letra">
+</mat-form-field>
+
+<mat-list-item *ngFor="let j of jugadores | filtroPorLetra : busqueda">
+  <app-jugador
+    [jugador]="j"
+    [nombreEquipo]="j.originalIndex"
+    (onActivate)="actualizarEstado($event)">
+  </app-jugador>
+</mat-list-item>
+
+<p *ngIf="(jugadores | filtroPorLetra:busqueda)?.length === 0">
+  No hay jugadores que coincidan.
+</p>
+
+
+
+  </div>
+</div>
+
+<ng-template #NoJugadores>
+  <div class="d-flex flex-column fs-5 align-items-center mt-4 w-100">
+    <mat-spinner *ngIf="spin" class="spinner"></mat-spinner>
+    <h2 *ngIf="spin">Cargando datos</h2>
+   <h3 *ngIf="!spin">No hay jugadores disponibles.</h3> 
+  </div>
+</ng-template>

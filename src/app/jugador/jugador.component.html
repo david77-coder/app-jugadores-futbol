@@ -1,0 +1,30 @@
+<mat-card [ngClass]="{
+  'me-5': true,
+  'mb-4': true,
+  'jugador-card': true,
+  'activo': jugador.estado,
+  'inactivo': !jugador.estado
+}">
+  <mat-card-header>
+    <div mat-card-avatar class="jugador-header-image"></div>
+    <mat-card-title> {{ jugador.nombre }} </mat-card-title>
+    <mat-card-subtitle>Equipo: {{ nombreEquipo }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    style="width: 200px; height: 200px"
+    src="https://placehold.co/200x200@2x.jpg?text=Jugador"
+    alt="Imagen del jugador"
+  />
+  <mat-card-actions>
+    <!-- <button [ngClass]="jugador.estado ? 'activo' : 'noactivo' " mat-button  color="primary" (click)="activarJugador()">{{ jugador.estado ? 'Desactivar' : 'Activar' }}</button> -->
+    <button
+      [ngClass]="jugador.estado ? 'activo' : 'noactivo'"
+      mat-button
+      color="primary"
+      (click)="activarJugador()"
+    >
+      {{ jugador.estado ? "Desactivar" : "Activar" }}
+    </button>
+  </mat-card-actions>
+</mat-card>
