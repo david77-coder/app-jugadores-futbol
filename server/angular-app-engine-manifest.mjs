@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://david77-coder.github.io/app-jugadores-futbol',
+  basePath: '/app-jugadores-futbol',
   supportedLocales: {
   "en-US": ""
 },
