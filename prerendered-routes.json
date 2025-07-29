@@ -1,0 +1,7 @@
+{
+  "routes": {
+    "/app-jugadores-futbol": {},
+    "/app-jugadores-futbol/juego": {},
+    "/app-jugadores-futbol/jugador": {}
+  }
+}

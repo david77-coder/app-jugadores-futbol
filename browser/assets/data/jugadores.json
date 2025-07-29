@@ -1,0 +1,72 @@
+[
+   
+    {
+        "nombre":"maria",
+        "edad": 22,
+        "apodo":"la pantera",
+        "foto":"https://example.com/maria.jpg",    
+        "posicion":"defensora",
+        "estado": false
+    },
+     {
+        "nombre":"sergio",
+        "edad": 25,
+        "apodo":"el tigre",
+        "foto":"https://example.com/sergio.jpg",    
+        "posicion":"defensa",
+        "estado": false
+    }
+    ,
+
+  
+    {
+        "nombre":"juan",
+        "edad": 30,
+        "apodo":"el lobo",
+        "foto":"https://example.com/juan.jpg",    
+        "posicion":"portero",
+        "estado": false
+    },
+    {
+        "nombre":"lucia",
+        "edad": 28,
+        "apodo":"la gacela",
+        "foto":"https://example.com/lucia.jpg",    
+        "posicion":"mediocampista",
+        "estado": false
+    },
+    {
+        "nombre":"pedro",
+        "edad": 26,
+        "apodo":"el halcon",
+        "foto":"https://example.com/pedro.jpg",    
+        "posicion":"delantero",
+        "estado": false
+    },
+    {
+        "nombre":"ana",
+        "edad": 24,
+        "apodo":"la leona",
+        "foto":"https://example.com/ana.jpg",    
+        "posicion":"defensora",
+        "estado": false
+    },
+    {
+        "nombre":"carlos",
+        "edad": 29,
+        "apodo":"el tigre",
+        "foto":"https://example.com/carlos.jpg",    
+        "posicion":"portero",
+        "estado": false
+    },
+    {
+        "nombre":"sofia",
+        "edad": 27,
+        "apodo":"la pantera",
+        "foto":"https://example.com/sofia.jpg",    
+        "posicion":"mediocampista",
+        "estado": false
+    }
+    
+
+]
